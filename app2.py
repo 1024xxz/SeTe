@@ -5,12 +5,17 @@ import joblib
 from streamlit_echarts import st_echarts
 
 # 加载模型和特征名称
+import os
+
 def load_model(model_select):
+    base_dir = os.path.dirname(__file__)  # 获取当前文件所在目录
     if model_select == 'SVMmodel':
-        svm_model = joblib.load(r'F:\桌面\my_project\SVM_Pyrite_Classifier.pkl')
+        svm_model_path = os.path.join(base_dir, 'SVM_Pyrite_Classifier.pkl')
+        svm_model = joblib.load(svm_model_path)
         return svm_model
     elif model_select == 'RFmodel':
-        rf_model = joblib.load(r'F:\桌面\my_project\RF_Pyrite_Classifier.pkl')
+        rf_model_path = os.path.join(base_dir, 'RF_Pyrite_Classifier.pkl')
+        rf_model = joblib.load(rf_model_path)
         return rf_model
 
 
