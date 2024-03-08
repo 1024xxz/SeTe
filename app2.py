@@ -9,14 +9,18 @@ import os
 
 def load_model(model_select):
     base_dir = os.path.dirname(__file__)  # 获取当前文件所在目录
+    print("Base directory:", base_dir)
     if model_select == 'SVMmodel':
         svm_model_path = os.path.join(base_dir, 'SVM_Pyrite_Classifier.pkl')
+        print("SVM model path:", svm_model_path)
         svm_model = joblib.load(svm_model_path)
         return svm_model
     elif model_select == 'RFmodel':
         rf_model_path = os.path.join(base_dir, 'RF_Pyrite_Classifier.pkl')
+        print("RF model path:", rf_model_path)
         rf_model = joblib.load(rf_model_path)
         return rf_model
+
 
 
 feature_names = ['Co', 'Ni', 'Cu', 'Zn', 'As', 'Se', 'Ag', 'Sb', 'Te', 'Au', 'Pb', 'Bi']
