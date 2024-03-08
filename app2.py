@@ -7,11 +7,12 @@ from streamlit_echarts import st_echarts
 # 加载模型和特征名称
 def load_model(model_select):
     if model_select == 'SVMmodel':
-        svm_model = joblib.load('F:\桌面\my_project\SVM_Pyrite_Classifier.pkl')
+        svm_model = joblib.load(r'F:\桌面\my_project\SVM_Pyrite_Classifier.pkl')
         return svm_model
     elif model_select == 'RFmodel':
-        rf_model = joblib.load('F:\桌面\my_project\RF_Pyrite_Classifier.pkl')
+        rf_model = joblib.load(r'F:\桌面\my_project\RF_Pyrite_Classifier.pkl')
         return rf_model
+
 
 feature_names = ['Co', 'Ni', 'Cu', 'Zn', 'As', 'Se', 'Ag', 'Sb', 'Te', 'Au', 'Pb', 'Bi']
 prediction_labels = {
